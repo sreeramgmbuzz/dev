@@ -49,48 +49,65 @@
         "show_text_below": false
       }
     },
-    "custom_liquid_NUqX3L": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
+    "slideshow_iWxKgd": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_WxbTkW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/woman-puts-hand-in-pocket.jpg",
+            "image_overlay_opacity": 30,
+            "heading": "WOMENS CHOICE",
+            "heading_size": "h1",
+            "subheading": "EXPLORE THE LADIES STYLE",
+            "button_label": "SHOP",
+            "link": "shopify://pages/female",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide_tjkDRF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/tshirts_1eac925c-53a3-48cb-b8c2-fdbfaaf2f25e.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "MEN CORNER",
+            "heading_size": "h1",
+            "subheading": "LATEST MENS COLLECTIONS",
+            "button_label": "Shop",
+            "link": "shopify://collections/tshirt",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_WxbTkW",
+        "slide_tjkDRF"
+      ],
+      "name": "t:sections.slideshow.presets.name",
       "settings": {
-        "custom_liquid": "",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
       }
     }
   },
   "order": [
     "image_banner",
-    "custom_liquid_NUqX3L",
-    "featured_collection"
+    "slideshow_iWxKgd"
   ]
 }
