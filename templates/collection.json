@@ -37,53 +37,10 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "collection_list_4CAPHj": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_KHRWd4": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "female-jeans"
-          }
-        },
-        "featured_collection_anNc4c": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "female-tees"
-          }
-        },
-        "featured_collection_47GxqM": {
-          "type": "featured_collection",
-          "disabled": true,
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_KHRWd4",
-        "featured_collection_anNc4c",
-        "featured_collection_47GxqM"
-      ],
-      "name": "t:sections.collection-list.presets.name",
-      "settings": {
-        "title": "Collections",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
     "banner",
-    "product-grid",
-    "collection_list_4CAPHj"
+    "product-grid"
   ]
 }
