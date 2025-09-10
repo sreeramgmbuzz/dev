@@ -1,0 +1,91 @@
+{% schema %}
+{
+  "name": "Head Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "My Custom Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Description",
+      "default": "This is a short description under the heading."
+    },
+    {
+      "type": "select",
+      "id": "font_choice",
+      "label": "Heading Font",
+      "options": [
+        { "value": "poppins", "label": "Poppins" },
+        { "value": "roboto", "label": "Roboto" },
+        { "value": "playfair", "label": "Playfair Display" },
+        { "value": "montserrat", "label": "Montserrat" },
+        { "value": "georgia", "label": "Georgia" }
+      ],
+      "default": "poppins"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Head Section"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="head-section" style="text-align: {{ section.settings.alignment }};">
+  {% if section.settings.heading != blank %}
+    <h2 class="head-title font-{{ section.settings.font_choice }}">
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
+  
+  {% if section.settings.subtext != blank %}
+    <p class="head-description">{{ section.settings.subtext }}</p>
+  {% endif %}
+</div>
+
+<style>
+/* Base styles */
+.head-section {
+  padding: 2rem 1rem;
+}
+
+.head-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.head-description {
+  font-size: 1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Font options */
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-roboto { font-family: 'Roboto', sans-serif; }
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+.font-georgia { font-family: Georgia, serif; }
+</style>
+
+<!-- Import Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">

@@ -1,0 +1,360 @@
+<!-- sections/foott.liquid -->
+
+<footer class="footer">
+  <div class="footer__container">
+    
+    <!-- Column 1: Logo & About -->
+    <div class="footer__col">
+      {% if section.settings.logo != blank %}
+        <div class="footer__logo">
+          <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="Footer Logo">
+        </div>
+      {% endif %}
+      {% if section.settings.about_text != blank %}
+        <p class="footer__about">{{ section.settings.about_text }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer__col">
+      <h4 class="footer__title">Quick Links</h4>
+      <ul>
+        {% for link in linklists[section.settings.quick_links].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Column 3: Legal -->
+    <div class="footer__col">
+      <h4 class="footer__title">Legal</h4>
+      <ul>
+        {% if section.settings.privacy_policy != blank %}
+          <li><a href="{{ section.settings.privacy_policy }}">Privacy Policy</a></li>
+        {% endif %}
+        {% if section.settings.terms_conditions != blank %}
+          <li><a href="{{ section.settings.terms_conditions }}">Terms & Conditions</a></li>
+        {% endif %}
+        {% if section.settings.refund_policy != blank %}
+          <li><a href="{{ section.settings.refund_policy }}">Refund Policy</a></li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <!-- Column 4: Customer Care -->
+    <div class="footer__col">
+      <h4 class="footer__title">Customer Care</h4>
+      <ul>
+        {% for link in linklists[section.settings.customer_links].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Column 5: Newsletter & Social -->
+    <div class="footer__col">
+      <h4 class="footer__title">Stay Connected</h4>
+      
+      <!-- Newsletter Form -->
+      <form method="post" action="/contact#contact_form" id="newsletter_form" accept-charset="UTF-8" class="footer__newsletter">
+        <input type="hidden" name="form_type" value="customer" />
+        <input type="hidden" name="utf8" value="✓" />
+        <input type="email" name="contact[email]" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      
+      <!-- Social Links -->
+      <div class="footer__social">
+        {% if section.settings.facebook != blank %}
+          <a href="{{ section.settings.facebook }}" target="_blank">Facebook</a>
+        {% endif %}
+        {% if section.settings.instagram != blank %}
+          <a href="{{ section.settings.instagram }}" target="_blank">Instagram</a>
+        {% endif %}
+        {% if section.settings.twitter != blank %}
+          <a href="{{ section.settings.twitter }}" target="_blank">Twitter</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Cursor Bubble Container -->
+  <div class="footer__cursor-bubbles"></div>
+
+  <!-- Bottom Bar -->
+  <div class="footer__bottom">
+    <p>{{ section.settings.footer_text }}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Professional Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "about_text",
+      "label": "About Brand",
+      "default": "Your Clothing Brand is dedicated to timeless style and premium quality fashion."
+    },
+    {
+      "type": "link_list",
+      "id": "quick_links",
+      "label": "Quick Links Menu"
+    },
+    {
+      "type": "url",
+      "id": "privacy_policy",
+      "label": "Privacy Policy Link"
+    },
+    {
+      "type": "url",
+      "id": "terms_conditions",
+      "label": "Terms & Conditions Link"
+    },
+    {
+      "type": "url",
+      "id": "refund_policy",
+      "label": "Refund Policy Link"
+    },
+    {
+      "type": "link_list",
+      "id": "customer_links",
+      "label": "Customer Care Menu"
+    },
+    {
+      "type": "url",
+      "id": "facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Copyright Text",
+      "default": "© 2025 Your Clothing Brand. All Rights Reserved."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Professional Footer"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 50px 20px 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+
+.footer__logo img {
+  max-width: 180px;
+  margin-bottom: 15px;
+}
+
+.footer__about {
+  font-size: 14px;
+  color: #bbb;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.footer__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.footer__col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__col li {
+  margin-bottom: 8px;
+}
+
+.footer__col a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer__col a:hover {
+  color: #fff;
+}
+
+.footer__newsletter {
+  display: flex;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.footer__newsletter input {
+  flex: 1 1 auto;
+  min-width: 180px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.footer__newsletter button {
+  padding: 10px 15px;
+  border: none;
+  background: #fff;
+  color: #111;
+  font-weight: 600;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.footer__newsletter button:hover {
+  background: #ddd;
+}
+
+.footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer__social a {
+  font-size: 14px;
+  color: #bbb;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer__social a:hover {
+  color: #fff;
+}
+
+.footer__bottom {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+}
+
+/* Cursor Bubble Effect */
+.footer__cursor-bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.footer__bubble {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubble-fade 0.8s linear forwards;
+}
+
+@keyframes bubble-fade {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 15px 15px;
+  }
+  .footer__container {
+    gap: 20px;
+  }
+  .footer__title {
+    font-size: 15px;
+  }
+  .footer__newsletter {
+    flex-direction: column;
+  }
+  .footer__newsletter input,
+  .footer__newsletter button {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer__about {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .footer__social {
+    justify-content: center;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("mousemove", function(e) {
+  const footer = document.querySelector(".footer");
+  const rect = footer.getBoundingClientRect();
+
+  if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
+    const bubble = document.createElement("span");
+    bubble.classList.add("footer__bubble");
+    bubble.style.left = e.clientX + "px";
+    bubble.style.top = e.clientY + "px";
+
+    document.querySelector(".footer__cursor-bubbles").appendChild(bubble);
+
+    setTimeout(() => {
+      bubble.remove();
+    }, 800);
+  }
+});
+</script>

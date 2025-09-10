@@ -11,6 +11,23 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "foott_cENQLq": {
+      "type": "foott",
+      "name": "Professional Footer",
+      "settings": {
+        "logo": "shopify://shop_images/images.png",
+        "about_text": "Your Clothing Brand is dedicated to timeless style and premium quality fashion.",
+        "quick_links": "main-menu",
+        "customer_links": "customer-account-main-menu",
+        "facebook": "https://www.rolls-roycemotorcars.com/en_GB/home.html",
+        "instagram": "https://www.rolls-roycemotorcars.com/en_GB/home.html",
+        "twitter": "",
+        "privacy_policy": "shopify://blogs/news",
+        "terms_conditions": "",
+        "refund_policy": "",
+        "footer_text": "© 2025 Your Clothing Brand. All Rights Reserved."
+      }
+    },
     "footer": {
       "type": "footer",
       "disabled": true,
@@ -31,6 +48,7 @@
     }
   },
   "order": [
+    "foott_cENQLq",
     "footer"
   ]
 }
